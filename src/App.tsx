@@ -18,7 +18,7 @@ function App() {
     return await rave.resolveStringToAddress(iput);
   }
 
-  resolvedName(input).then((res: string) => { if (res !== '0x98FEF8Da2e27984092B00D8d351b1e625B7E0492') { setAmount(drop[res.toLowerCase()]); console.log(res) } });
+  resolvedName(input).then((res: string) => { if (res !== '0x98FEF8Da2e27984092B00D8d351b1e625B7E0492') { setAmount(Math.min(drop[res.toLowerCase()], 200_000)); console.log(res) } });
   
   return (
   <ThemeProvider theme={lightTheme}>
