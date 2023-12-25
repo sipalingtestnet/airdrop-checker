@@ -121670,8 +121670,8 @@ function App() {
       </a>
 
       <h1 className="title">How much $MASS do you get?</h1>
-      <p>Total Tokens from Airdrop: {totalAllTokens.toLocaleString()} ({(totalAllTokens/1000000).toFixed(1)}M) $MAS</p>            
-      <p className="subtitle">MADE BY SIPALING TESTNET</p>
+      <p><strong>Total Tokens from Airdrop:</strong> {totalAllTokens.toLocaleString()} (<strong>{(totalAllTokens/1000000).toFixed(1)}M</strong>) $MAS</p>     
+       <p className="subtitle">MADE BY SIPALING TESTNET</p>
             <div className="input-container">
         <input type="text" placeholder="Enter address" onChange={handleInputChange} />
       </div>
