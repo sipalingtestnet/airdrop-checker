@@ -121629,6 +121629,7 @@ function App() {
   const [nodeRunningCoins, setNodeRunningCoins] = useState("");
   const [ambassadorCoins, setAmbassadorCoins] = useState("");
   const [questCoins, setQuestCoins] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const address = event.target.value;
@@ -121637,31 +121638,32 @@ function App() {
       setNodeRunningCoins(data.node_running_coins);
       setAmbassadorCoins(data.ambassador_coins);
       setQuestCoins(data.quest_coins);
+      setErrorMessage("");
     } else {
       setNodeRunningCoins("");
       setAmbassadorCoins("");
       setQuestCoins("");
+      setErrorMessage("Sorry, you are not eligible");
     }
   };
 
   const totalCoins = parseFloat(nodeRunningCoins) + parseFloat(ambassadorCoins) + parseFloat(questCoins);
 
   return (
-    
     <div className="App">
-       <a href="https://massa.net/" target="_blank">
-          <img src="https://pbs.twimg.com/profile_images/1580151744901824512/W_MD85bU_400x400.jpg" className="logo react" alt="Rave logo" />
-        </a>
-
-
+      <a href="https://massa.net/" target="_blank" rel="noopener noreferrer">
+        <img src="https://pbs.twimg.com/profile_images/1580151744901824512/W_MD85bU_400x400.jpg" className="logo react" alt="Rave logo" />
+      </a>
 
       <h1 className="title">How much $MASS do you get?</h1>
       <p className="subtitle">MADE BY SIPALING TESTNET</p>
       <div className="input-container">
-
         <input type="text" placeholder="Enter address" onChange={handleInputChange} />
       </div>
-      {nodeRunningCoins && (
+
+      {errorMessage ? (
+        <div className="error-message">{errorMessage}</div>
+      ) : nodeRunningCoins ? (
         <div className="coins-container">
           <table>
             <thead>
@@ -121691,7 +121693,7 @@ function App() {
             </tbody>
           </table>
         </div>
-      )}
+      ) : null}
     </div>
   );
 }
