@@ -1,17 +1,4 @@
-import React, { useState } from 'react';
-import './App.css';
-
-interface DropData {
-  [key: string]: {
-    node_running_coins: string;
-    ambassador_coins: string;
-    quest_coins: string;
-    wants_initial_rolls?: boolean;
-  };
-}
-
-const drop: DropData = {
-  
+{
   "AU12ZEgGTzXj2gZzKebKju4npbFui3pAWW58DtFRQGTEUQA4ggBmS": {
     "node_running_coins": "7447.105174604",
     "ambassador_coins": "0",
@@ -121618,78 +121605,4 @@ const drop: DropData = {
     "ambassador_coins": "0",
     "quest_coins": "0"
   }
-
-};
-
-function App() {
-  const [nodeRunningCoins, setNodeRunningCoins] = useState("");
-  const [ambassadorCoins, setAmbassadorCoins] = useState("");
-  const [questCoins, setQuestCoins] = useState("");
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const address = event.target.value;
-    if (drop.hasOwnProperty(address)) {
-      const data = drop[address];
-      setNodeRunningCoins(data.node_running_coins);
-      setAmbassadorCoins(data.ambassador_coins);
-      setQuestCoins(data.quest_coins);
-    } else {
-      setNodeRunningCoins("");
-      setAmbassadorCoins("");
-      setQuestCoins("");
-    }
-  };
-
-  const totalCoins = parseFloat(nodeRunningCoins) + parseFloat(ambassadorCoins) + parseFloat(questCoins);
-
-  return (
-    
-    <div className="App">
-       <a href="https://massa.net/" target="_blank">
-          <img src="https://pbs.twimg.com/profile_images/1580151744901824512/W_MD85bU_400x400.jpg" className="logo react" alt="Rave logo" />
-        </a>
-
-
-
-      <h1 className="title">How much $MASS do you get?</h1>
-      <p className="subtitle">MADE BY SIPALING TESTNET</p>
-      <div className="input-container">
-
-        <input type="text" placeholder="Enter address" onChange={handleInputChange} />
-      </div>
-      {nodeRunningCoins && (
-        <div className="coins-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Kategori</th>
-                <th>Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Node Running Coins:</td>
-                <td>{nodeRunningCoins}</td>
-              </tr>
-              <tr>
-                <td>Ambassador Coins:</td>
-                <td>{ambassadorCoins}</td>
-              </tr>
-              <tr>
-                <td>Quest Coins:</td>
-                <td>{questCoins}</td>
-              </tr>
-              <tr>
-                <td className="total-coins" colSpan={2}>
-                  Total Coins: <span className="total-coins-value">{totalCoins}</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      )}
-    </div>
-  );
 }
-
-export default App;

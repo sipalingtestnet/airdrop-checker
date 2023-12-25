@@ -12,16 +12,20 @@
   transition: filter 1s;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #ff0000);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 8em #61dafbaa);
+  filter: drop-shadow(0 0 8em #ff0000);
   animation: background-glow 8s infinite;
   animation-delay: 1s;
   will-change: filter, animation;
   transition: filter 1s;
 }
 
+.input-container input[type="text"] {
+  width: 100%; /* Menyesuaikan lebar dengan lebar parent container */
+  font-size: 1.2em;
+}
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -44,4 +48,63 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* App.css */
+
+.App {
+  text-align: center;
+  background-color: #222;
+  color: #fff;
+}
+
+.title {
+  color: #ff0000; /* Red */
+}
+
+.subtitle {
+  color: #ff0000; /* Red */
+}
+
+.input-container {
+  margin-top: 20px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+}
+
+.coins-container {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+td {
+  padding: 10px;
+}
+
+.total-coins {
+  font-weight: bold;
+  color: #ff0000; /* Red */
+}
+
+.total-coins-value {
+  color: #ff0000; /* Red */
+}
+.logo {
+  border-radius: 50%;
 }
