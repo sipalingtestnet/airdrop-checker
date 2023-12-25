@@ -137,7 +137,7 @@ th {
   padding-top: 10px; /* Opsi untuk memberikan ruang antara garis dan input */
 }
 .error-message {
-  font-size: 2em;
+  font-size: 1.7em;
   font-weight: bold;
   padding-top: 20px;
   padding-bottom: 20px;
