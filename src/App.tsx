@@ -121649,15 +121649,30 @@ function App() {
 
   const totalCoins = parseFloat(nodeRunningCoins) + parseFloat(ambassadorCoins) + parseFloat(questCoins);
 
+  // Calculate the total of all tokens
+  let totalAllTokens = 0;
+  for (const address in drop) {
+    const data = drop[address];
+    totalAllTokens +=
+      parseFloat(data.node_running_coins) +
+      parseFloat(data.ambassador_coins) +
+      parseFloat(data.quest_coins);
+  }
+
   return (
     <div className="App">
       <a href="https://massa.net/" target="_blank" rel="noopener noreferrer">
-        <img src="https://pbs.twimg.com/profile_images/1580151744901824512/W_MD85bU_400x400.jpg" className="logo react" alt="Rave logo" />
+        <img
+          src="https://pbs.twimg.com/profile_images/1580151744901824512/W_MD85bU_400x400.jpg"
+          className="logo react"
+          alt="Rave logo"
+        />
       </a>
 
       <h1 className="title">How much $MASS do you get?</h1>
+      <p>Total Tokens from Airdrop: {totalAllTokens.toLocaleString()} ({(totalAllTokens/1000000).toFixed(1)}M) $MAS</p>            
       <p className="subtitle">MADE BY SIPALING TESTNET</p>
-      <div className="input-container">
+            <div className="input-container">
         <input type="text" placeholder="Enter address" onChange={handleInputChange} />
       </div>
 
@@ -121694,6 +121709,8 @@ function App() {
           </table>
         </div>
       ) : null}
+
+    
     </div>
   );
 }
