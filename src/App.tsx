@@ -121646,6 +121646,26 @@ function App() {
       setErrorMessage("Sorry, you are not eligible");
     }
   };
+  const totalNodeRunningCoins = Object.values(drop).reduce(
+    (total, data) => total + parseFloat(data.node_running_coins),
+    0
+  );
+
+  const totalAmbassadorCoins = Object.values(drop).reduce(
+    (total, data) => total + parseFloat(data.ambassador_coins),
+    0
+  );
+
+  const totalQuestCoins = Object.values(drop).reduce(
+    (total, data) => total + parseFloat(data.quest_coins),
+    0
+  );
+
+  const totalEligibleAddresses = Object.keys(drop).filter(address => address.startsWith("AU1")).length;
+  
+
+
+
 
   const totalCoins = parseFloat(nodeRunningCoins) + parseFloat(ambassadorCoins) + parseFloat(questCoins);
 
@@ -121661,6 +121681,8 @@ function App() {
 
   return (
     <div className="App">
+<h1 className="title fancy-title">How much $MASS do you get?</h1>
+
       <a href="https://massa.net/" target="_blank" rel="noopener noreferrer">
         <img
           src="https://pbs.twimg.com/profile_images/1580151744901824512/W_MD85bU_400x400.jpg"
@@ -121669,13 +121691,50 @@ function App() {
         />
       </a>
 
-      <h1 className="title">How much $MASS do you get?</h1>
-      <p><strong>Total Tokens from Airdrop:</strong> {totalAllTokens.toLocaleString()} (<strong>{(totalAllTokens/1000000).toFixed(1)}M</strong>) $MAS</p>     
-       <p className="subtitle">MADE BY SIPALING TESTNET</p>
-            <div className="input-container">
-        <input type="text" placeholder="Enter address" onChange={handleInputChange} />
-      </div>
+      <p><strong>INFORMATION</strong></p>
+      <table>
+            <thead>
+              <tr>
+                <th>Kategori</th>
+                <th>Total Tokens</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Total Addres Eligble :</td>
+                 
+                <td>{totalEligibleAddresses.toLocaleString()} ({(totalEligibleAddresses / 1000).toFixed(1)}K)</td>
+                    </tr>
+              <tr>
+                <td>Total Reward Node :</td>
+                 
+                <td> {totalNodeRunningCoins.toLocaleString()} ({(totalNodeRunningCoins/1000000).toFixed(1)}M) </td>            
+                    </tr>
+             
+              <tr>
+                <td>Total Reward Quest:</td>
+                <td> {totalQuestCoins.toLocaleString()} ({(totalQuestCoins/1000000).toFixed(1)}M) </td>
 
+             
+              </tr>
+              <tr>
+                <td>Total Reward Ambassador:</td>
+                <td> {totalAmbassadorCoins.toLocaleString()} ({(totalAmbassadorCoins/1000000).toFixed(1)}M) </td>
+          
+              </tr>
+              <tr>
+                <td>Total Airdrop:</td>
+                <td> {totalAllTokens.toLocaleString()} ({(totalAllTokens/1000000).toFixed(1)}M) </td>
+
+             
+              </tr>
+            </tbody>
+          </table>
+      
+  <div className="input-container">
+    <input type="text" placeholder="Enter address" onChange={handleInputChange}  />
+  
+</div>
       {errorMessage ? (
         <div className="error-message">{errorMessage}</div>
       ) : nodeRunningCoins ? (
@@ -121701,16 +121760,18 @@ function App() {
                 <td>{questCoins}</td>
               </tr>
               <tr>
-                <td className="total-coins" colSpan={2}>
-                  Total Coins: <span className="total-coins-value">{totalCoins}</span>
-                </td>
+              <td className="total-coins" colSpan={2}>
+              <div className="centered-text">
+  <span className="total-reward-label">Total Reward: {totalCoins}$MASS</span>
+</div>
+</td>
               </tr>
             </tbody>
           </table>
         </div>
       ) : null}
 
-    
+<p className="subtitle" style={{ color: 'white' }}>MADE BY SIPALING TESTNET</p>
     </div>
   );
 }

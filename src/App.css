@@ -73,7 +73,7 @@
 input[type="text"] {
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: #333;
   color: #fff;
 }
@@ -87,14 +87,14 @@ table {
   border-collapse: collapse;
 }
 
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
 th {
   background-color: #333;
   color: #fff;
-  padding: 10px;
-}
-
-td {
-  padding: 10px;
 }
 
 .total-coins {
@@ -107,4 +107,39 @@ td {
 }
 .logo {
   border-radius: 50%;
+}
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+.centered-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.total-reward-label {
+  font-size: 2em;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 20px;
+
+}
+
+.total-coins-value {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+
+.input-border {
+  border-top: 35px solid #333;
+  padding-top: 10px; /* Opsi untuk memberikan ruang antara garis dan input */
+}
+.error-message {
+  font-size: 2em;
+  font-weight: bold;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
 }
