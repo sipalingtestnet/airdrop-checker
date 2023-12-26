@@ -157,7 +157,9 @@ const App = () => {
               <tr>
               <td className="total-coins" colSpan={2}>
               <div className="centered-text">
-  <span className="total-reward-label">Total Reward: {totalCoins}$MASS</span>
+              <span className="total-reward-label">Total Reward: {totalCoins}$MASS</span></div>
+              <div className="centered-text">
+<span className="total-vesting-label">Total Unlocked: {totalCoins * 0.3}$MASS</span>
 </div>
 </td>
               </tr>

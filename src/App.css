@@ -125,6 +125,14 @@ th {
   padding-bottom: 20px;
 
 }
+.total-vesting-label {
+  font-size: 2em;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  color: green;
+
+}
 
 .total-coins-value {
   font-size: 2em;
