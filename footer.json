@@ -1,0 +1,33 @@
+[
+  {
+    "title": "Developers",
+    "links": [
+      {
+        "text": "GitHub",
+        "url": "https://github.com/sipalingtestnet"
+      }
+    ]
+  },
+  {
+    "title": "Community",
+    "links": [
+      {
+        "text": "Telegram",
+        "url": "https://t.me/ssipalingtestnet"
+      },
+      {
+        "text": "Discord",
+        "url": "https://discord.com/users/1048986000573075487"
+      }
+    ]
+  },
+  {
+    "title": "About Sipaling Testnet",
+    "links": [
+      {
+        "text": "About",
+        "url": "https://sipalingtestnet.com"
+      }
+    ]
+  }
+]
